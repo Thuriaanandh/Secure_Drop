@@ -93,7 +93,7 @@ public class SecureDropDatabaseHelper extends SQLiteOpenHelper {
         values.put("auth_tag_hex", item.authTagHex);
         values.put("wrapped_key", wrappedKey);
         values.put("created_at", item.createdAt);
-        db.insertWithOnConflict(DATABASE_NAME, null, values, SQLiteDatabase.CONFLICT_REPLACE);
+        db.insertWithOnConflict("local_files", null, values, SQLiteDatabase.CONFLICT_REPLACE);
     }
 
     public List<FileItem> getLocalFiles() {
