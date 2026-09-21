@@ -21,6 +21,9 @@ app.use(express.urlencoded({ extended: true }));
 // Multer storage for uploaded encrypted files
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
+    if (!fs.existsSync(db.uploadsDir)) {
+      fs.mkdirSync(db.uploadsDir, { recursive: true });
+    }
     cb(null, db.uploadsDir);
   },
   filename: (req, file, cb) => {
@@ -62,6 +65,24 @@ function authenticateToken(req, res, next) {
       return res.status(403).json({ error: 'Invalid or expired authentication token' });
     }
     req.user = user;
+
+    // Ensure user exists in SQLite database (self-healing for ephemeral restarts on Render)
+    try {
+      let dbUser = db.get('SELECT id FROM users WHERE id = ?', [user.id]);
+      if (!dbUser) {
+        console.log(`[AUTH] Auto-recovering session in DB for ${user.username} (${user.id})`);
+        let existing = db.get('SELECT id FROM users WHERE username = ? OR email = ?', [user.username, user.email || '']);
+        let safeUsername = existing ? `${user.username}_${user.id.substring(0, 4)}` : user.username;
+        let safeEmail = existing ? `${user.id.substring(0, 6)}_${user.email}` : (user.email || `${user.username}@securedrop.local`);
+        db.run(
+          'INSERT OR IGNORE INTO users (id, username, email, password_hash, created_at) VALUES (?, ?, ?, ?, ?)',
+          [user.id, safeUsername, safeEmail, 'SESSION_RECOVERED', Date.now()]
+        );
+      }
+    } catch (dbErr) {
+      console.error('[AUTH DB RECOVERY ERROR]', dbErr);
+    }
+
     next();
   });
 }
@@ -247,6 +268,18 @@ app.post('/api/files/upload', authenticateToken, upload.single('encrypted_file')
     const fileId = crypto.randomBytes(16).toString('hex');
     const createdAt = Date.now();
 
+    // Guarantee owner exists in users table to prevent foreign key violations on ephemeral host restarts
+    let userRow = db.get('SELECT id FROM users WHERE id = ?', [req.user.id]);
+    if (!userRow) {
+      let existing = db.get('SELECT id FROM users WHERE username = ? OR email = ?', [req.user.username, req.user.email || '']);
+      let safeUsername = existing ? `${req.user.username}_${req.user.id.substring(0, 4)}` : (req.user.username || 'user_' + req.user.id.substring(0, 6));
+      let safeEmail = existing ? `${req.user.id.substring(0, 6)}_${req.user.email}` : (req.user.email || `${req.user.id}@securedrop.local`);
+      db.run(
+        'INSERT OR IGNORE INTO users (id, username, email, password_hash, created_at) VALUES (?, ?, ?, ?, ?)',
+        [req.user.id, safeUsername, safeEmail, 'SESSION_RECOVERED', createdAt]
+      );
+    }
+
     db.run(
       `INSERT INTO files (id, owner_id, original_name, mime_type, encrypted_size, plaintext_size, sha256_hash, plaintext_sha256, iv_hex, auth_tag_hex, storage_filename, created_at)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
@@ -294,7 +327,7 @@ app.post('/api/files/upload', authenticateToken, upload.single('encrypted_file')
   } catch (err) {
     if (req.file && fs.existsSync(req.file.path)) fs.unlinkSync(req.file.path);
     console.error('File upload error:', err);
-    res.status(500).json({ error: 'Internal server error during file upload' });
+    res.status(500).json({ error: 'Internal server error during file upload: ' + err.message });
   }
 });
 
