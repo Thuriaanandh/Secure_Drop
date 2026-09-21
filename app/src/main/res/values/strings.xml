@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SecureDrop</string>
+    <string name="tagline">Private files. Controlled access.</string>
+
+    <!-- General -->
+    <string name="action_login">Log In</string>
+    <string name="action_register">Register</string>
+    <string name="action_logout">Log Out</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_save">Save</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_copy">Copy</string>
+    <string name="action_share">Share</string>
+    <string name="action_dismiss">Dismiss</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_revoke">Revoke Access</string>
+    <string name="action_decrypt">Decrypt &amp; View</string>
+    <string name="action_download">Download File</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_security_posture">Security Posture</string>
+    <string name="dashboard_quick_actions">Quick Actions</string>
+    <string name="dashboard_send_file">Secure Send</string>
+    <string name="dashboard_receive_file">Receive Share</string>
+    <string name="dashboard_my_files">My Files</string>
+    <string name="dashboard_recent_activity">Security Audit Trail</string>
+    <string name="dashboard_security_center">Security Center</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_files">Files</string>
+    <string name="nav_logs">Audit Logs</string>
+    <string name="nav_security">Security</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Upload & Share -->
+    <string name="upload_select_file">Select Document</string>
+    <string name="upload_encrypt_btn">Encrypt &amp; Upload</string>
+    <string name="share_settings_title">Access &amp; Security Controls</string>
+    <string name="share_expiration_label">Access Expiration</string>
+    <string name="share_one_time_label">One-Time Download</string>
+    <string name="share_one_time_desc">Invalidate link permanently after 1st successful download</string>
+    <string name="share_passcode_label">Require Passcode</string>
+    <string name="share_passcode_desc">Recipient must enter secret code to download</string>
+    <string name="share_biometric_label">Require Recipient Biometric</string>
+    <string name="share_biometric_desc">Require biometric/device lock verification before decrypting</string>
+    <string name="share_screenshot_label">Enforce Screenshot Protection</string>
+    <string name="share_screenshot_desc">Block screen captures and screen recording</string>
+
+    <!-- Security Status -->
+    <string name="status_encrypted">Encrypted (AES-256-GCM)</string>
+    <string name="status_integrity_verified">✓ Integrity verified</string>
+    <string name="status_integrity_failed">⚠ Integrity verification failed. Download blocked.</string>
+    <string name="status_expired">⚠ Share expired</string>
+    <string name="status_consumed">⚠ This secure link has already been used.</string>
+    <string name="status_revoked">⚠ Access revoked by owner</string>
+
+    <!-- Accessibility Descriptions -->
+    <string name="desc_app_logo">SecureDrop Shield Logo</string>
+    <string name="desc_security_badge">Security indicator badge</string>
+    <string name="desc_file_icon">Encrypted document icon</string>
+    <string name="desc_copy_link">Copy share link to clipboard</string>
+    <string name="desc_revoke_share">Revoke recipient access to file</string>
+</resources>

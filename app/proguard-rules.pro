@@ -1,0 +1,1 @@
+# SecureDrop Proguard Rules

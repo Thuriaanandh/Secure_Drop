@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    android:orientation="vertical">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_badge_blue"
+            android:padding="8dp"
+            android:src="@drawable/ic_copy"
+            app:tint="@color/brand_accent" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Security Verification Console"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Interactive Application Security Testing"
+                android:textColor="@color/security_amber"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRunAllTests"
+            style="@style/SecureDropButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Run All"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/layoutTestResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Test Item 1: Encryption -->
+            <include
+                android:id="@+id/cardTestEncryption"
+                layout="@layout/item_security_test" />
+
+            <!-- Test Item 2: Integrity -->
+            <include
+                android:id="@+id/cardTestIntegrity"
+                layout="@layout/item_security_test" />
+
+            <!-- Test Item 3: Expiring Link -->
+            <include
+                android:id="@+id/cardTestExpiringLink"
+                layout="@layout/item_security_test" />
+
+            <!-- Test Item 4: One-Time Download -->
+            <include
+                android:id="@+id/cardTestOneTime"
+                layout="@layout/item_security_test" />
+
+            <!-- Test Item 5: Revocation -->
+            <include
+                android:id="@+id/cardTestRevocation"
+                layout="@layout/item_security_test" />
+
+            <!-- Test Item 6: Screenshot Protection -->
+            <include
+                android:id="@+id/cardTestScreenshot"
+                layout="@layout/item_security_test" />
+
+            <!-- Test Item 7: Biometric Auth -->
+            <include
+                android:id="@+id/cardTestBiometric"
+                layout="@layout/item_security_test" />
+
+            <!-- Test Item 8: IDOR / Unauthorized Access -->
+            <include
+                android:id="@+id/cardTestIdor"
+                layout="@layout/item_security_test" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

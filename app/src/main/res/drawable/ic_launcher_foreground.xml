@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Center Security Shield -->
+    <path
+        android:pathData="M54,28 L72,36 C72,56 54,74 54,78 C54,74 36,56 36,36 Z"
+        android:fillColor="#152744"
+        android:strokeColor="#00D2FF"
+        android:strokeWidth="2.5" />
+
+    <!-- Node A (Top-Left Sender Node) -->
+    <path
+        android:pathData="M32,38m-5,0a5,5 0 1,1 10,0a5,5 0 1,1 -10,0"
+        android:fillColor="#0A84FF" />
+    <path
+        android:pathData="M32,38m-7,0a7,7 0 1,1 14,0a7,7 0 1,1 -14,0"
+        android:strokeColor="#00D2FF"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000" />
+
+    <!-- Node B (Bottom-Right Recipient Node) -->
+    <path
+        android:pathData="M76,68m-5,0a5,5 0 1,1 10,0a5,5 0 1,1 -10,0"
+        android:fillColor="#00E676" />
+    <path
+        android:pathData="M76,68m-7,0a7,7 0 1,1 14,0a7,7 0 1,1 -14,0"
+        android:strokeColor="#00E676"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000" />
+
+    <!-- Opposing Transfer Flow Arcs (Node to Shield) -->
+    <path
+        android:pathData="M37,42 C44,48 48,50 51,52"
+        android:strokeColor="#00D2FF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M71,64 C64,58 60,56 57,54"
+        android:strokeColor="#00E676"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+    <!-- Cryptographic Shield Core / Keyhole -->
+    <path
+        android:pathData="M54,46m-3.5,0a3.5,3.5 0 1,1 7,0a3.5,3.5 0 1,1 -7,0"
+        android:fillColor="#00D2FF" />
+    <path
+        android:pathData="M52.5,49 L55.5,49 L57,59 L51,59 Z"
+        android:fillColor="#00D2FF" />
+</vector>
