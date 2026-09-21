@@ -6,97 +6,149 @@
     android:background="@color/bg_dark"
     android:orientation="vertical">
 
-    <!-- Header -->
+    <!-- Velune Top App Bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:paddingStart="20dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="12dp">
 
         <ImageView
             android:id="@+id/btnBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/bg_badge_blue"
-            android:padding="8dp"
-            android:src="@drawable/ic_copy"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_circle_icon_button"
+            android:contentDescription="Navigate Back"
+            android:padding="10dp"
+            android:src="@drawable/ic_arrow_back"
             app:tint="@color/brand_accent" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="14dp"
             android:layout_weight="1"
-            android:text="Security Center"
-            android:textColor="@color/text_primary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.02"
+                android:text="Security Center"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.04"
+                android:text="POSTURE EVALUATION &amp; CONTROLS"
+                android:textColor="@color/brand_accent"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:overScrollMode="never">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:paddingStart="20dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="24dp">
 
-            <!-- Security Posture Overview Card -->
+            <!-- Security Posture Overview Hero Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/bg_surface_card"
-                app:cardCornerRadius="18dp"
-                app:strokeColor="@color/border_active"
+                app:cardCornerRadius="22dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border_glow"
                 app:strokeWidth="1.2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/bg_hero_cyber_card"
                     android:orientation="vertical"
                     android:padding="20dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="OVERALL SECURITY POSTURE"
-                        android:textColor="@color/brand_accent"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_badge_green"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_shield_check"
+                            app:tint="@color/security_green" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.04"
+                                android:text="OVERALL SECURITY POSTURE"
+                                android:textColor="@color/brand_accent"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvSecurityCenterScore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="100 / 100"
+                                android:textColor="@color/security_green"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
 
                     <TextView
-                        android:id="@+id/tvSecurityCenterScore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="100 / 100"
-                        android:textColor="@color/security_green"
-                        android:textSize="28sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Active cryptographic controls defend against MITM, IDOR, brute-force, data theft, and shoulder surfing."
+                        android:layout_marginTop="14dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="Active cryptographic controls defend against MITM eavesdropping, IDOR enumeration, brute-force passcodes, and shoulder surfing."
                         android:textColor="@color/text_secondary"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Control Breakdown -->
+            <!-- Section Label -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="ACTIVE SECURITY CONTROLS"
+                android:layout_marginTop="22dp"
+                android:letterSpacing="0.06"
+                android:text="DEFENSE-IN-DEPTH CONTROLS"
                 android:textColor="@color/text_secondary"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:textStyle="bold" />
 
             <!-- Control 1: AES-256-GCM -->
@@ -105,7 +157,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:cardBackgroundColor="@color/bg_surface_card"
-                app:cardCornerRadius="14dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/border_subtle"
                 app:strokeWidth="1dp">
 
@@ -113,7 +166,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="14dp">
+                    android:padding="16dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -134,10 +187,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bg_badge_green"
-                            android:paddingStart="8dp"
-                            android:paddingTop="3dp"
-                            android:paddingEnd="8dp"
-                            android:paddingBottom="3dp"
+                            android:paddingStart="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="4dp"
                             android:text="✓ AES-GCM (+20)"
                             android:textColor="@color/security_green"
                             android:textSize="11sp"
@@ -147,8 +200,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Files are encrypted on the device using 256-bit AES keys generated via SecureRandom before upload. Server never receives plaintext."
+                        android:layout_marginTop="6dp"
+                        android:lineSpacingExtra="2dp"
+                        android:text="Files are encrypted on-device using 256-bit AES keys generated via SecureRandom before upload. Server never receives plaintext."
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -160,7 +214,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:cardBackgroundColor="@color/bg_surface_card"
-                app:cardCornerRadius="14dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/border_subtle"
                 app:strokeWidth="1dp">
 
@@ -168,7 +223,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="14dp">
+                    android:padding="16dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -180,7 +235,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Cryptographic Key Protection"
+                            android:text="Hardware Key Protection"
                             android:textColor="@color/text_primary"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -189,10 +244,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bg_badge_green"
-                            android:paddingStart="8dp"
-                            android:paddingTop="3dp"
-                            android:paddingEnd="8dp"
-                            android:paddingBottom="3dp"
+                            android:paddingStart="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="4dp"
                             android:text="✓ Keystore (+15)"
                             android:textColor="@color/security_green"
                             android:textSize="11sp"
@@ -202,7 +257,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="6dp"
+                        android:lineSpacingExtra="2dp"
                         android:text="Master storage keys reside in AndroidKeyStore hardware/StrongBox. File keys are wrapped using AES-GCM and never stored unencrypted."
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
@@ -215,7 +271,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:cardBackgroundColor="@color/bg_surface_card"
-                app:cardCornerRadius="14dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/border_subtle"
                 app:strokeWidth="1dp">
 
@@ -223,7 +280,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="14dp">
+                    android:padding="16dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -244,10 +301,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bg_badge_green"
-                            android:paddingStart="8dp"
-                            android:paddingTop="3dp"
-                            android:paddingEnd="8dp"
-                            android:paddingBottom="3dp"
+                            android:paddingStart="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="4dp"
                             android:text="✓ SHA-256 (+15)"
                             android:textColor="@color/security_green"
                             android:textSize="11sp"
@@ -257,7 +314,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="6dp"
+                        android:lineSpacingExtra="2dp"
                         android:text="Every payload is validated against its precomputed SHA-256 hash before decryption. Tampered files are immediately blocked."
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
@@ -270,7 +328,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:cardBackgroundColor="@color/bg_surface_card"
-                app:cardCornerRadius="14dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/border_subtle"
                 app:strokeWidth="1dp">
 
@@ -278,7 +337,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="14dp">
+                    android:padding="16dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -300,10 +359,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bg_badge_green"
-                            android:paddingStart="8dp"
-                            android:paddingTop="3dp"
-                            android:paddingEnd="8dp"
-                            android:paddingBottom="3dp"
+                            android:paddingStart="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="4dp"
                             android:text="✓ FLAG_SECURE (+15)"
                             android:textColor="@color/security_green"
                             android:textSize="11sp"
@@ -313,7 +372,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="6dp"
+                        android:lineSpacingExtra="2dp"
                         android:text="WindowManager FLAG_SECURE prevents screen captures and recents task thumbnails. Android 14+ capture callback audits attempts."
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
@@ -326,7 +386,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:cardBackgroundColor="@color/bg_surface_card"
-                app:cardCornerRadius="14dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/border_subtle"
                 app:strokeWidth="1dp">
 
@@ -334,7 +395,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="14dp">
+                    android:padding="16dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -356,10 +417,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bg_badge_green"
-                            android:paddingStart="8dp"
-                            android:paddingTop="3dp"
-                            android:paddingEnd="8dp"
-                            android:paddingBottom="3dp"
+                            android:paddingStart="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="4dp"
                             android:text="✓ Biometrics (+15)"
                             android:textColor="@color/security_green"
                             android:textSize="11sp"
@@ -369,7 +430,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="6dp"
+                        android:lineSpacingExtra="2dp"
                         android:text="Android BiometricPrompt gates sensitive document decryption and app unlock using Strong biometric/hardware credentials."
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
@@ -381,9 +443,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/bg_surface_card"
-                app:cardCornerRadius="14dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/border_subtle"
                 app:strokeWidth="1dp">
 
@@ -391,7 +454,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="14dp">
+                    android:padding="16dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -412,10 +475,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bg_badge_green"
-                            android:paddingStart="8dp"
-                            android:paddingTop="3dp"
-                            android:paddingEnd="8dp"
-                            android:paddingBottom="3dp"
+                            android:paddingStart="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="4dp"
                             android:text="✓ Active (+20)"
                             android:textColor="@color/security_green"
                             android:textSize="11sp"
@@ -425,7 +488,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="6dp"
+                        android:lineSpacingExtra="2dp"
                         android:text="Tamper-evident logs track all file access events. Decrypted plaintext memory is zeroized upon viewer closure."
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />

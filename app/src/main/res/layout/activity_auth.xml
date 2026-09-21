@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_dark"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:overScrollMode="never">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,6 +13,7 @@
         android:orientation="vertical"
         android:padding="24dp">
 
+        <!-- Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,38 +21,43 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_circle_icon_button"
+                android:padding="7dp"
                 android:src="@drawable/ic_launcher_foreground" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="12dp"
                 android:layout_weight="1"
-                android:text="SecureDrop"
+                android:letterSpacing="0.04"
+                android:text="SECUREDROP"
                 android:textColor="@color/text_primary"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/btnConfigServer"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@drawable/bg_badge_blue"
-                android:padding="6dp"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:background="@drawable/bg_circle_icon_button"
+                android:padding="9dp"
                 android:src="@drawable/ic_settings"
                 app:tint="@color/brand_accent" />
         </LinearLayout>
 
+        <!-- Hero Title -->
         <TextView
             android:id="@+id/tvAuthTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="32dp"
+            android:letterSpacing="0.01"
             android:text="Secure Sign In"
             android:textColor="@color/text_primary"
-            android:textSize="24sp"
+            android:textSize="26sp"
             android:textStyle="bold" />
 
         <TextView
@@ -60,14 +67,14 @@
             android:layout_marginTop="4dp"
             android:text="Authenticate to access your encrypted vault."
             android:textColor="@color/text_secondary"
-            android:textSize="14sp" />
+            android:textSize="13.5sp" />
 
-        <!-- Tab Selector: Login vs Register -->
+        <!-- Segmented Tab Selector: Login vs Register (Velune Pill) -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/bg_card_cyber"
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_input_field"
             android:orientation="horizontal"
             android:padding="4dp">
 
@@ -78,9 +85,10 @@
                 android:layout_weight="1"
                 android:background="@drawable/bg_card_cyber_accent"
                 android:gravity="center"
+                android:letterSpacing="0.02"
                 android:text="Log In"
                 android:textColor="@color/brand_accent"
-                android:textSize="14sp"
+                android:textSize="13.5sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -89,9 +97,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:letterSpacing="0.02"
                 android:text="Register"
                 android:textColor="@color/text_muted"
-                android:textSize="14sp"
+                android:textSize="13.5sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -99,28 +108,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="22dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/lblUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Username"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp"
+                android:letterSpacing="0.06"
+                android:text="USERNAME"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"
+                android:textStyle="bold"
                 android:visibility="gone" />
 
             <EditText
                 android:id="@+id/etUsername"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="6dp"
-                android:layout_marginBottom="14dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/bg_input_field"
                 android:hint="cyber_analyst"
-                android:paddingStart="14dp"
-                android:paddingEnd="14dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:textColor="@color/text_primary"
                 android:textColorHint="@color/text_hint"
                 android:textSize="14sp"
@@ -130,21 +141,23 @@
                 android:id="@+id/lblIdentifier"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email or Username"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp" />
+                android:letterSpacing="0.06"
+                android:text="EMAIL OR USERNAME"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etIdentifier"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="6dp"
-                android:layout_marginBottom="14dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/bg_input_field"
                 android:hint="analyst@securedrop.test"
                 android:inputType="textEmailAddress"
-                android:paddingStart="14dp"
-                android:paddingEnd="14dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:textColor="@color/text_primary"
                 android:textColorHint="@color/text_hint"
                 android:textSize="14sp" />
@@ -152,20 +165,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Master Password"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp" />
+                android:letterSpacing="0.06"
+                android:text="MASTER PASSWORD"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="6dp"
                 android:background="@drawable/bg_input_field"
                 android:hint="••••••••••••"
                 android:inputType="textPassword"
-                android:paddingStart="14dp"
-                android:paddingEnd="14dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:textColor="@color/text_primary"
                 android:textColorHint="@color/text_hint"
                 android:textSize="14sp" />
@@ -193,9 +208,9 @@
             android:id="@+id/tvAuthError"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="14dp"
             android:background="@drawable/bg_badge_red"
-            android:padding="10dp"
+            android:padding="12dp"
             android:textColor="@color/security_red"
             android:textSize="12sp"
             android:visibility="gone" />
@@ -204,18 +219,20 @@
             android:id="@+id/btnSubmitAuth"
             style="@style/SecureDropButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:layout_marginTop="24dp"
             android:text="Log In"
-            android:textColor="@color/white" />
+            android:textColor="@color/black"
+            android:textSize="14.5sp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnOfflineDemo"
             style="@style/SecureDropButton.Outline"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="12dp"
-            android:text="Offline Demo Mode (No Server Needed)" />
+            android:text="Offline Demo Mode (No Server Needed)"
+            android:textSize="12sp" />
 
         <View
             android:layout_width="match_parent"
@@ -226,7 +243,7 @@
             android:id="@+id/tvCurrentServerUrl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="Server: http://10.0.2.2:3000"
             android:textColor="@color/text_muted"

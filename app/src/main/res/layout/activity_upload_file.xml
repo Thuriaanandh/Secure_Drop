@@ -12,33 +12,51 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:paddingStart="20dp"
+        android:paddingTop="18dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="14dp">
 
         <ImageView
             android:id="@+id/btnBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/bg_badge_blue"
-            android:padding="8dp"
-            android:src="@drawable/ic_copy"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_circle_icon_button"
+            android:padding="9dp"
+            android:src="@drawable/ic_arrow_back"
             app:tint="@color/brand_accent" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="14dp"
             android:layout_weight="1"
-            android:text="Encrypt &amp; Upload"
-            android:textColor="@color/text_primary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.02"
+                android:text="Encrypt &amp; Upload"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Client-Side AES-256-GCM Pipeline"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp" />
+        </LinearLayout>
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:overScrollMode="never">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,13 +64,17 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <!-- File Selection Box -->
+            <!-- File Selection Box (Velune Cyber Dropzone) -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardSelectFile"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="170dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/bg_surface_card"
-                app:cardCornerRadius="18dp"
+                app:cardCornerRadius="22dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/border_active"
                 app:strokeWidth="1.5dp">
 
@@ -61,20 +83,20 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
                         android:background="@drawable/bg_badge_blue"
-                        android:padding="10dp"
+                        android:padding="12dp"
                         android:src="@drawable/ic_upload"
                         app:tint="@color/brand_accent" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="14dp"
                         android:text="Select Document to Encrypt"
                         android:textColor="@color/text_primary"
                         android:textSize="15sp"
@@ -83,10 +105,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="PDF, DOCX, TXT, ZIP, Images (Storage Access Framework)"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="11sp" />
+                        android:layout_marginTop="3dp"
+                        android:text="PDF, DOCX, Images, ZIP • Storage Access Framework"
+                        android:textColor="@color/text_muted"
+                        android:textSize="11.5sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -95,10 +117,11 @@
                 android:id="@+id/cardFilePreview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="18dp"
                 android:visibility="gone"
                 app:cardBackgroundColor="@color/bg_surface_card"
-                app:cardCornerRadius="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/border_subtle"
                 app:strokeWidth="1dp">
 
@@ -106,7 +129,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="18dp">
 
                     <TextView
                         android:id="@+id/tvSelectedFileName"
@@ -121,7 +144,7 @@
                         android:id="@+id/tvSelectedFileSize"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="3dp"
                         android:text="Size: 1.2 MB • MIME: application/pdf"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
@@ -136,19 +159,23 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:letterSpacing="0.06"
                         android:text="CRYPTOGRAPHIC AUDIT SPECIFICATION"
                         android:textColor="@color/brand_accent"
-                        android:textSize="11sp"
+                        android:textSize="10.5sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvCryptoAudit"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_input_field"
                         android:fontFamily="monospace"
+                        android:lineSpacingExtra="3dp"
+                        android:padding="12dp"
                         android:text="Algorithm: AES-256-GCM\nKey Protection: Android Keystore\nPlaintext SHA-256: calculating..."
-                        android:textColor="@color/text_secondary"
+                        android:textColor="@color/security_green"
                         android:textSize="11sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -158,10 +185,10 @@
                 android:id="@+id/layoutProgress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="18dp"
                 android:background="@drawable/bg_card_cyber"
                 android:orientation="vertical"
-                android:padding="16dp"
+                android:padding="18dp"
                 android:visibility="gone">
 
                 <TextView
@@ -177,8 +204,8 @@
                     android:id="@+id/pbUpload"
                     style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="8dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="12dp"
                     android:indeterminate="true"
                     android:progressTint="@color/brand_accent" />
             </LinearLayout>
@@ -189,7 +216,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 android:background="@drawable/bg_badge_red"
-                android:padding="10dp"
+                android:padding="12dp"
                 android:textColor="@color/security_red"
                 android:textSize="12sp"
                 android:visibility="gone" />
@@ -203,12 +230,14 @@
                 android:id="@+id/btnStartEncryption"
                 style="@style/SecureDropButton"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="52dp"
                 android:layout_marginTop="24dp"
                 android:enabled="false"
                 android:text="Encrypt &amp; Upload"
+                android:textColor="@color/black"
                 app:icon="@drawable/ic_lock"
-                app:iconGravity="textStart" />
+                app:iconGravity="textStart"
+                app:iconTint="@color/black" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -1,39 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Brand & Accent Colors -->
-    <color name="brand_primary">#0A84FF</color>
-    <color name="brand_primary_variant">#0066CC</color>
-    <color name="brand_accent">#00D2FF</color>
-    <color name="brand_accent_glow">#3300D2FF</color>
+    <!-- Brand & Accent Colors (Velune Cyber Neon) -->
+    <color name="brand_primary">#00E5FF</color>
+    <color name="brand_primary_variant">#00B0FF</color>
+    <color name="brand_accent">#00F0FF</color>
+    <color name="brand_accent_glow">#4000F0FF</color>
+    <color name="brand_purple">#A855F7</color>
+    <color name="brand_purple_glow">#33A855F7</color>
 
-    <!-- Backgrounds (Cyber Dark Theme) -->
-    <color name="bg_dark">#0B111E</color>
-    <color name="bg_surface">#131D31</color>
-    <color name="bg_surface_card">#1A2640</color>
-    <color name="bg_surface_card_selected">#233354</color>
-    <color name="bg_surface_elevated">#202E4C</color>
-    <color name="bg_input">#152138</color>
+    <!-- Deep Pitch Black Backgrounds (AMOLED Velune Style) -->
+    <color name="bg_dark">#030508</color>
+    <color name="bg_surface">#080C14</color>
+    <color name="bg_surface_card">#0D121F</color>
+    <color name="bg_surface_card_selected">#161F32</color>
+    <color name="bg_surface_elevated">#12192A</color>
+    <color name="bg_input">#06080F</color>
 
-    <!-- Text Colors -->
+    <!-- Text Colors (High Contrast) -->
     <color name="text_primary">#FFFFFF</color>
     <color name="text_secondary">#94A3B8</color>
     <color name="text_muted">#64748B</color>
     <color name="text_hint">#475569</color>
 
-    <!-- Security Status Colors -->
-    <color name="security_green">#00E676</color>
-    <color name="security_green_bg">#1A00E676</color>
-    <color name="security_amber">#FFB300</color>
-    <color name="security_amber_bg">#1AFFB300</color>
-    <color name="security_red">#FF3B30</color>
-    <color name="security_red_bg">#1AFF3B30</color>
-    <color name="security_blue">#00D2FF</color>
-    <color name="security_blue_bg">#1A00D2FF</color>
+    <!-- Security Status Colors (Ultra Neon) -->
+    <color name="security_green">#00FF9D</color>
+    <color name="security_green_bg">#2000FF9D</color>
+    <color name="security_amber">#FFB800</color>
+    <color name="security_amber_bg">#20FFB800</color>
+    <color name="security_red">#FF2A55</color>
+    <color name="security_red_bg">#20FF2A55</color>
+    <color name="security_blue">#00E5FF</color>
+    <color name="security_blue_bg">#2000E5FF</color>
 
     <!-- Borders & Dividers -->
-    <color name="border_subtle">#2A3B5C</color>
-    <color name="border_active">#00D2FF</color>
-    <color name="divider_line">#1E2C44</color>
+    <color name="border_subtle">#1A2438</color>
+    <color name="border_active">#00F0FF</color>
+    <color name="border_glow">#4D00F0FF</color>
+    <color name="divider_line">#121929</color>
 
     <!-- Misc -->
     <color name="black">#000000</color>

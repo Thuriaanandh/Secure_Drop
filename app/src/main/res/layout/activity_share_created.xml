@@ -6,38 +6,57 @@
     android:background="@color/bg_dark"
     android:orientation="vertical">
 
+    <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:paddingStart="20dp"
+        android:paddingTop="18dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="14dp">
 
         <ImageView
             android:id="@+id/btnBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/bg_badge_blue"
-            android:padding="8dp"
-            android:src="@drawable/ic_copy"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_circle_icon_button"
+            android:padding="9dp"
+            android:src="@drawable/ic_arrow_back"
             app:tint="@color/brand_accent" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="14dp"
             android:layout_weight="1"
-            android:text="Share Link Ready"
-            android:textColor="@color/text_primary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.02"
+                android:text="Share Link Active"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Encrypted &amp; Ready for Recipient"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp" />
+        </LinearLayout>
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:overScrollMode="never">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,7 +64,7 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <!-- Success Header -->
+            <!-- Success Hero Icon -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,18 +74,18 @@
                 android:paddingBottom="16dp">
 
                 <ImageView
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
                     android:background="@drawable/bg_badge_green"
-                    android:padding="12dp"
+                    android:padding="16dp"
                     android:src="@drawable/ic_shield_check"
                     app:tint="@color/security_green" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Secure Share Active"
+                    android:layout_marginTop="14dp"
+                    android:text="Access Link Deployed"
                     android:textColor="@color/text_primary"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -75,19 +94,20 @@
                     android:id="@+id/tvCreatedFileName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="3dp"
                     android:text="contract_confidential.pdf"
                     android:textColor="@color/brand_accent"
-                    android:textSize="14sp" />
+                    android:textSize="13.5sp" />
             </LinearLayout>
 
-            <!-- Composite Share Code Box -->
+            <!-- Composite Share Code Card (Velune Glow Card) -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 app:cardBackgroundColor="@color/bg_surface_card"
-                app:cardCornerRadius="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/border_active"
                 app:strokeWidth="1.2dp">
 
@@ -95,14 +115,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="18dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:letterSpacing="0.06"
                         android:text="ZERO-KNOWLEDGE SHARE CODE"
                         android:textColor="@color/brand_accent"
-                        android:textSize="11sp"
+                        android:textSize="10.5sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -112,20 +133,23 @@
                         android:layout_marginTop="8dp"
                         android:background="@drawable/bg_input_field"
                         android:fontFamily="monospace"
-                        android:padding="12dp"
+                        android:lineSpacingExtra="3dp"
+                        android:padding="14dp"
                         android:text="TOKEN#KEY"
-                        android:textColor="@color/text_primary"
+                        android:textColor="@color/security_green"
                         android:textSize="12sp" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnCopyCode"
                         style="@style/SecureDropButton"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="14dp"
                         android:text="Copy Secure Code"
+                        android:textColor="@color/black"
                         app:icon="@drawable/ic_copy"
-                        app:iconGravity="textStart" />
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/black" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -135,7 +159,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:cardBackgroundColor="@color/bg_surface_card"
-                app:cardCornerRadius="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/border_subtle"
                 app:strokeWidth="1dp">
 
@@ -143,21 +168,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="18dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:letterSpacing="0.06"
                         android:text="ENFORCED SECURITY PARAMETERS"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="11sp"
+                        android:textColor="@color/text_muted"
+                        android:textSize="10.5sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvParamExpiration"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="10dp"
                         android:text="• Expiration: Enforced on server"
                         android:textColor="@color/text_primary"
                         android:textSize="13sp" />
@@ -166,7 +192,7 @@
                         android:id="@+id/tvParamOneTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="5dp"
                         android:text="• One-time download: Invalidated after first fetch"
                         android:textColor="@color/text_primary"
                         android:textSize="13sp" />
@@ -175,7 +201,7 @@
                         android:id="@+id/tvParamPasscode"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="5dp"
                         android:text="• Passcode: None"
                         android:textColor="@color/text_primary"
                         android:textSize="13sp" />
@@ -183,7 +209,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="5dp"
                         android:text="• Decryption: Client-side AES-256-GCM"
                         android:textColor="@color/security_green"
                         android:textSize="13sp" />
@@ -199,7 +225,7 @@
                 android:id="@+id/btnShareIntent"
                 style="@style/SecureDropButton.Outline"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:text="Share via App..."
                 app:icon="@drawable/ic_share"
@@ -209,10 +235,11 @@
                 android:id="@+id/btnReturnDashboard"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:text="Return to Dashboard"
-                android:textColor="@color/text_secondary" />
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

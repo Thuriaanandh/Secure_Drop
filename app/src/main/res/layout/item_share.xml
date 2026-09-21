@@ -5,8 +5,8 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
     app:cardBackgroundColor="@color/bg_surface_card"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="2dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="0dp"
     app:strokeColor="@color/border_subtle"
     app:strokeWidth="1dp">
 
@@ -23,10 +23,10 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
                 android:background="@drawable/bg_badge_green"
-                android:padding="8dp"
+                android:padding="9dp"
                 android:src="@drawable/ic_share"
                 app:tint="@color/security_green" />
 
@@ -63,9 +63,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_badge_green"
-                android:paddingStart="8dp"
+                android:paddingStart="10dp"
                 android:paddingTop="4dp"
-                android:paddingEnd="8dp"
+                android:paddingEnd="10dp"
                 android:paddingBottom="4dp"
                 android:text="ACTIVE"
                 android:textColor="@color/security_green"
@@ -100,28 +100,38 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCopyShareCode"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+                style="@style/SecureDropButton"
                 android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_height="34dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
                 android:text="Copy"
                 android:textColor="@color/brand_accent"
-                android:textSize="12sp"
+                android:textSize="11sp"
+                app:cornerRadius="17dp"
                 app:icon="@drawable/ic_copy"
-                app:iconSize="14dp"
-                app:iconTint="@color/brand_accent" />
+                app:iconSize="13dp"
+                app:iconTint="@color/brand_accent"
+                app:strokeColor="@color/border_glow"
+                app:strokeWidth="1dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRevokeShare"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+                style="@style/SecureDropButton.Danger"
                 android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:layout_marginStart="4dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="8dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
                 android:text="Revoke"
                 android:textColor="@color/security_red"
-                android:textSize="12sp"
+                android:textSize="11sp"
+                app:cornerRadius="17dp"
                 app:icon="@drawable/ic_delete"
-                app:iconSize="14dp"
-                app:iconTint="@color/security_red" />
+                app:iconSize="13dp"
+                app:iconTint="@color/security_red"
+                app:strokeColor="@color/security_red"
+                app:strokeWidth="1dp" />
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

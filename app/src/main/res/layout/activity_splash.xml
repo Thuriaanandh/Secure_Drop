@@ -12,18 +12,27 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/ivSplashLogo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:contentDescription="@string/desc_app_logo"
-            android:src="@drawable/ic_launcher_foreground" />
+        <!-- Glowing Brand Logo Icon Container -->
+        <FrameLayout
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:background="@drawable/bg_badge_blue"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/ivSplashLogo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/desc_app_logo"
+                android:src="@drawable/ic_shield_check"
+                app:tint="@color/brand_accent" />
+        </FrameLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:letterSpacing="0.08"
+            android:layout_marginTop="20dp"
+            android:letterSpacing="0.12"
             android:text="SECUREDROP"
             android:textColor="@color/text_primary"
             android:textSize="26sp"
@@ -36,13 +45,13 @@
             android:letterSpacing="0.04"
             android:text="Private files. Controlled access."
             android:textColor="@color/brand_accent"
-            android:textSize="14sp" />
+            android:textSize="13sp" />
 
         <ProgressBar
             android:id="@+id/pbSplash"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="32dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="36dp"
             android:indeterminateTint="@color/brand_accent" />
     </LinearLayout>
 
@@ -51,8 +60,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
-        android:text="AES-256-GCM • Android Keystore Protected"
+        android:layout_marginBottom="28dp"
+        android:letterSpacing="0.06"
+        android:text="AES-256-GCM • ANDROID KEYSTORE PROTECTED"
         android:textColor="@color/text_muted"
-        android:textSize="11sp" />
+        android:textSize="10sp"
+        android:textStyle="bold" />
 </RelativeLayout>

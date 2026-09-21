@@ -4,9 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
     app:cardBackgroundColor="@color/bg_surface_card"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="2dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="0dp"
     app:strokeColor="@color/border_subtle"
     app:strokeWidth="1dp">
 
@@ -23,17 +26,17 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
                 android:background="@drawable/bg_badge_blue"
-                android:padding="8dp"
+                android:padding="9dp"
                 android:src="@drawable/ic_file"
                 app:tint="@color/brand_accent" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="14dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -45,7 +48,7 @@
                     android:singleLine="true"
                     android:text="Financial_Report.pdf"
                     android:textColor="@color/text_primary"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -55,7 +58,7 @@
                     android:layout_marginTop="2dp"
                     android:text="2.4 MB • Encrypted (AES-256-GCM)"
                     android:textColor="@color/text_secondary"
-                    android:textSize="12sp" />
+                    android:textSize="11.5sp" />
             </LinearLayout>
 
             <TextView
@@ -63,13 +66,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_badge_green"
-                android:paddingStart="8dp"
+                android:paddingStart="10dp"
                 android:paddingTop="4dp"
-                android:paddingEnd="8dp"
+                android:paddingEnd="10dp"
                 android:paddingBottom="4dp"
                 android:text="SECURE"
                 android:textColor="@color/security_green"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -103,11 +106,15 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
+                android:background="@drawable/bg_badge_blue"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
                 android:text="Share"
                 android:textColor="@color/brand_accent"
-                android:textSize="13sp"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 app:icon="@drawable/ic_share"
-                app:iconSize="16dp"
+                app:iconSize="14dp"
                 app:iconTint="@color/brand_accent" />
         </LinearLayout>
     </LinearLayout>

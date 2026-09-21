@@ -6,67 +6,87 @@
     android:background="@color/bg_dark"
     android:orientation="vertical">
 
-    <!-- Top App Bar -->
+    <!-- Velune Sleek Top App Bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="20dp"
-        android:paddingTop="16dp"
+        android:paddingTop="18dp"
         android:paddingEnd="20dp"
-        android:paddingBottom="12dp">
+        android:paddingBottom="14dp">
 
         <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_circle_icon_button"
+            android:padding="6dp"
             android:src="@drawable/ic_launcher_foreground" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="12dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SecureDrop"
+                android:letterSpacing="0.02"
+                android:text="SECUREDROP"
                 android:textColor="@color/text_primary"
-                android:textSize="18sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvUserGreeting"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Private files. Controlled access."
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:background="@drawable/bg_badge_green" />
+
+                <TextView
+                    android:id="@+id/tvUserGreeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="Vault Active • @User"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11.5sp" />
+            </LinearLayout>
         </LinearLayout>
 
-        <!-- Debug Test Mode / Demo Button -->
+        <!-- Interactive Demo Badge Pill -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnDemoScreen"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:layout_marginEnd="6dp"
-            android:backgroundTint="@color/security_amber_bg"
-            android:text="Demo"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_badge_amber"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:text="⚡ Demo Suite"
             android:textColor="@color/security_amber"
             android:textSize="11sp"
-            android:textStyle="bold"
-            app:strokeColor="@color/security_amber"
-            app:strokeWidth="1dp" />
+            android:textStyle="bold" />
 
+        <!-- Settings Glass Icon Button -->
         <ImageView
             android:id="@+id/btnSettings"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="@drawable/bg_badge_blue"
-            android:padding="8dp"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_circle_icon_button"
+            android:padding="9dp"
             android:src="@drawable/ic_settings"
             app:tint="@color/brand_accent" />
     </LinearLayout>
@@ -75,7 +95,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:overScrollMode="never">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,22 +104,26 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Security Posture Card -->
+            <!-- Hero Security Posture Glass Card -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardSecurityScore"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/bg_surface_card"
-                app:cardCornerRadius="18dp"
-                app:cardElevation="3dp"
-                app:strokeColor="@color/border_active"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/transparent"
+                app:cardCornerRadius="22dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border_glow"
                 app:strokeWidth="1.2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/bg_hero_cyber_card"
                     android:orientation="vertical"
-                    android:padding="18dp">
+                    android:padding="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -115,29 +140,31 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:letterSpacing="0.08"
                                 android:text="SECURITY POSTURE"
                                 android:textColor="@color/brand_accent"
-                                android:textSize="11sp"
+                                android:textSize="10.5sp"
                                 android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="Client &amp; Transport Guard"
+                                android:text="Client &amp; Hardware Guard"
                                 android:textColor="@color/text_primary"
                                 android:textSize="17sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
+                        <!-- Glowing Score Badge -->
                         <TextView
                             android:id="@+id/tvScoreNumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bg_badge_green"
-                            android:paddingStart="12dp"
+                            android:paddingStart="14dp"
                             android:paddingTop="6dp"
-                            android:paddingEnd="12dp"
+                            android:paddingEnd="14dp"
                             android:paddingBottom="6dp"
                             android:text="100 / 100"
                             android:textColor="@color/security_green"
@@ -145,64 +172,69 @@
                             android:textStyle="bold" />
                     </LinearLayout>
 
+                    <!-- Feature Tags -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="14dp"
+                        android:layout_marginTop="16dp"
                         android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/tagAes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="6dp"
+                            android:layout_marginEnd="8dp"
                             android:background="@drawable/bg_badge_green"
-                            android:paddingStart="8dp"
-                            android:paddingTop="3dp"
-                            android:paddingEnd="8dp"
-                            android:paddingBottom="3dp"
+                            android:paddingStart="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="4dp"
                             android:text="✓ AES-256-GCM"
                             android:textColor="@color/security_green"
-                            android:textSize="11sp" />
+                            android:textSize="10.5sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/tagKeystore"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="6dp"
+                            android:layout_marginEnd="8dp"
                             android:background="@drawable/bg_badge_green"
-                            android:paddingStart="8dp"
-                            android:paddingTop="3dp"
-                            android:paddingEnd="8dp"
-                            android:paddingBottom="3dp"
-                            android:text="✓ Keystore"
+                            android:paddingStart="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="4dp"
+                            android:text="✓ Keystore TEE"
                             android:textColor="@color/security_green"
-                            android:textSize="11sp" />
+                            android:textSize="10.5sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/tagIntegrity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bg_badge_green"
-                            android:paddingStart="8dp"
-                            android:paddingTop="3dp"
-                            android:paddingEnd="8dp"
-                            android:paddingBottom="3dp"
+                            android:paddingStart="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="4dp"
                             android:text="✓ SHA-256"
                             android:textColor="@color/security_green"
-                            android:textSize="11sp" />
+                            android:textSize="10.5sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Quick Actions Grid -->
+            <!-- Quick Actions Section -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:text="QUICK ACTIONS"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp"
+                android:layout_marginTop="24dp"
+                android:letterSpacing="0.08"
+                android:text="ACTIONS"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -211,84 +243,106 @@
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
-                <!-- Action: Secure Send -->
+                <!-- Action: Secure Send (Velune Tactile Card) -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btnQuickSend"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="115dp"
                     android:layout_marginEnd="8dp"
                     android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/bg_surface_card"
-                    app:cardCornerRadius="16dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
                     app:strokeColor="@color/border_subtle"
                     app:strokeWidth="1dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:orientation="vertical"
-                        android:padding="12dp">
+                        android:padding="16dp">
 
                         <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
                             android:background="@drawable/bg_badge_blue"
-                            android:padding="6dp"
+                            android:padding="8dp"
                             android:src="@drawable/ic_upload"
                             app:tint="@color/brand_accent" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="10dp"
                             android:text="Secure Send"
                             android:textColor="@color/text_primary"
-                            android:textSize="13sp"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Encrypt &amp; Share"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Action: Receive Share -->
+                <!-- Action: Receive Share (Velune Tactile Card) -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btnQuickReceive"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="115dp"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/bg_surface_card"
-                    app:cardCornerRadius="16dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
                     app:strokeColor="@color/border_subtle"
                     app:strokeWidth="1dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:orientation="vertical"
-                        android:padding="12dp">
+                        android:padding="16dp">
 
                         <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
                             android:background="@drawable/bg_badge_green"
-                            android:padding="6dp"
+                            android:padding="8dp"
                             android:src="@drawable/ic_download"
                             app:tint="@color/security_green" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="10dp"
                             android:text="Receive Share"
                             android:textColor="@color/text_primary"
-                            android:textSize="13sp"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Decrypt with Key"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
-            <!-- Secondary Actions -->
+            <!-- Secondary Vault Actions (Pill Cards) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -298,11 +352,15 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btnNavMyFiles"
                     android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_height="72dp"
                     android:layout_marginEnd="6dp"
                     android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/bg_surface_card"
-                    app:cardCornerRadius="14dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
                     app:strokeColor="@color/border_subtle"
                     app:strokeWidth="1dp">
 
@@ -311,33 +369,52 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:padding="12dp">
+                        android:padding="14dp">
 
                         <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:background="@drawable/bg_badge_blue"
+                            android:padding="7dp"
                             android:src="@drawable/ic_file"
                             app:tint="@color/brand_accent" />
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="My Files"
-                            android:textColor="@color/text_primary"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
+                            android:layout_marginStart="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="My Files"
+                                android:textColor="@color/text_primary"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Encrypted Vault"
+                                android:textColor="@color/text_muted"
+                                android:textSize="10.5sp" />
+                        </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btnNavAuditLogs"
                     android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_height="72dp"
                     android:layout_marginStart="6dp"
                     android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/bg_surface_card"
-                    app:cardCornerRadius="14dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
                     app:strokeColor="@color/border_subtle"
                     app:strokeWidth="1dp">
 
@@ -346,31 +423,46 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:padding="12dp">
+                        android:padding="14dp">
 
                         <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:background="@drawable/bg_badge_amber"
+                            android:padding="7dp"
                             android:src="@drawable/ic_history"
                             app:tint="@color/security_amber" />
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Audit Trail"
-                            android:textColor="@color/text_primary"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
+                            android:layout_marginStart="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Audit Trail"
+                                android:textColor="@color/text_primary"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Security Events"
+                                android:textColor="@color/text_muted"
+                                android:textSize="10.5sp" />
+                        </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
-            <!-- Recent Encrypted Files Header -->
+            <!-- Encrypted Files Header -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="26dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -378,16 +470,18 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:letterSpacing="0.08"
                     android:text="ENCRYPTED FILES"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="12sp"
+                    android:textColor="@color/text_muted"
+                    android:textSize="11sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/btnViewAllFiles"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="View All"
+                    android:padding="6dp"
+                    android:text="View All ➜"
                     android:textColor="@color/brand_accent"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -397,27 +491,28 @@
                 android:id="@+id/rvRecentFiles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:nestedScrollingEnabled="false" />
 
+            <!-- Empty Files Sleek Card -->
             <TextView
                 android:id="@+id/tvEmptyFiles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/bg_card_cyber"
                 android:gravity="center"
-                android:padding="24dp"
-                android:text="No encrypted files yet. Tap 'Secure Send' to upload."
+                android:padding="28dp"
+                android:text="🔒 Vault is Empty\nNo encrypted files yet. Tap 'Secure Send' to upload."
                 android:textColor="@color/text_muted"
-                android:textSize="13sp"
+                android:textSize="12.5sp"
                 android:visibility="gone" />
 
             <!-- Recent Security Audit Trail Header -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="26dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -425,16 +520,18 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="RECENT SECURITY ACTIVITY"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="12sp"
+                    android:letterSpacing="0.08"
+                    android:text="SECURITY ACTIVITY"
+                    android:textColor="@color/text_muted"
+                    android:textSize="11sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/btnViewAllLogs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="View Logs"
+                    android:padding="6dp"
+                    android:text="View Logs ➜"
                     android:textColor="@color/brand_accent"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -444,7 +541,7 @@
                 android:id="@+id/rvRecentLogs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:nestedScrollingEnabled="false" />
         </LinearLayout>
     </ScrollView>
