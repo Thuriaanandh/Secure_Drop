@@ -106,8 +106,8 @@ public class ApiClient {
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setDoOutput(true);
-                conn.setConnectTimeout(15000);
-                conn.setReadTimeout(30000);
+                conn.setConnectTimeout(60000);
+                conn.setReadTimeout(60000);
                 conn.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
 
                 String authToken = prefs.getAuthToken();
@@ -220,8 +220,8 @@ public class ApiClient {
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setDoOutput(true);
-                conn.setConnectTimeout(15000);
-                conn.setReadTimeout(30000);
+                conn.setConnectTimeout(60000);
+                conn.setReadTimeout(60000);
                 conn.setRequestProperty("Content-Type", "application/json");
 
                 JSONObject body = new JSONObject();
@@ -296,8 +296,8 @@ public class ApiClient {
                 URL url = new URL(getBaseUrl() + endpoint);
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod(method);
-                conn.setConnectTimeout(12000);
-                conn.setReadTimeout(15000);
+                conn.setConnectTimeout(60000);
+                conn.setReadTimeout(60000);
                 conn.setRequestProperty("Content-Type", "application/json");
 
                 String authToken = prefs.getAuthToken();

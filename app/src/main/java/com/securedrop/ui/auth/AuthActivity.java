@@ -64,12 +64,14 @@ public class AuthActivity extends AppCompatActivity {
         tabRegister.setOnClickListener(v -> setAuthMode(false));
 
         btnConfigServer.setOnClickListener(v -> showServerConfigDialog());
+        tvCurrentServerUrl.setOnClickListener(v -> showServerConfigDialog());
         btnSubmitAuth.setOnClickListener(v -> submitAuth());
         btnOfflineDemo.setOnClickListener(v -> enterOfflineDemoMode());
     }
 
     private void updateServerDisplay() {
-        tvCurrentServerUrl.setText("Server: " + prefs.getServerUrl());
+        String currentUrl = prefs.getServerUrl();
+        tvCurrentServerUrl.setText("Server: " + currentUrl + "  (Tap to change ⚙️)");
     }
 
     private void setAuthMode(boolean login) {
@@ -103,14 +105,15 @@ public class AuthActivity extends AppCompatActivity {
     }
 
     private void showServerConfigDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.SecureDropCard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Server Network Endpoint");
+        builder.setMessage("Enter your Render URL (e.g. https://your-service.onrender.com) or local backend address:");
 
         final EditText input = new EditText(this);
         input.setText(prefs.getServerUrl());
         input.setTextColor(getColor(R.color.text_primary));
         input.setBackgroundResource(R.drawable.bg_input_field);
-        input.setPadding(32, 32, 32, 32);
+        input.setPadding(32, 28, 32, 28);
         builder.setView(input);
 
         builder.setPositiveButton("Save", (dialog, which) -> {
@@ -118,11 +121,24 @@ public class AuthActivity extends AppCompatActivity {
             if (!newUrl.isEmpty()) {
                 prefs.setServerUrl(newUrl);
                 updateServerDisplay();
-                Toast.makeText(this, "Server URL updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Server URL updated to: " + newUrl, Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("Cancel", null);
         builder.show();
+    }
+
+    private String generateHintForError(int statusCode, String errorMessage) {
+        String currentUrl = prefs.getServerUrl();
+        StringBuilder hint = new StringBuilder();
+        if (currentUrl != null && currentUrl.contains("10.0.2.2")) {
+            hint.append("\n\n⚠️ Server is currently set to emulator loopback (http://10.0.2.2:3000).\nIf testing on physical phones, tap ⚙️ above or the Server link below to enter your Render or LAN URL.");
+        } else if (statusCode == 0 || errorMessage.contains("timed out") || errorMessage.contains("timeout") || errorMessage.contains("connect")) {
+            hint.append("\n\n⏳ If using Render free tier, the server may be waking up from sleep mode (~35s cold start). Please wait a few seconds and try again!");
+        } else if (statusCode == 409) {
+            hint.append("\n\n💡 This username or email is already registered. Switch to 'Log In' tab or choose a different username.");
+        }
+        return hint.toString();
     }
 
     private void submitAuth() {
@@ -172,9 +188,7 @@ public class AuthActivity extends AppCompatActivity {
                 public void onError(int statusCode, String errorMessage) {
                     pbAuth.setVisibility(View.GONE);
                     btnSubmitAuth.setEnabled(true);
-                    String hint = (statusCode == 0 || errorMessage.contains("connect") || errorMessage.contains("Failed to connect"))
-                            ? "\n\nServer unreachable. Start backend with 'npm start', or tap 'Offline Demo Mode' below."
-                            : "";
+                    String hint = generateHintForError(statusCode, errorMessage);
                     showError(errorMessage + hint);
                     AuditLogger.logEvent(AuthActivity.this, "AUTHENTICATION_FAILURE", "WARNING",
                             "Login failed for: " + identifier, null);
@@ -214,9 +228,7 @@ public class AuthActivity extends AppCompatActivity {
                 public void onError(int statusCode, String errorMessage) {
                     pbAuth.setVisibility(View.GONE);
                     btnSubmitAuth.setEnabled(true);
-                    String hint = (statusCode == 0 || errorMessage.contains("connect") || errorMessage.contains("Failed to connect"))
-                            ? "\n\nServer unreachable. Start backend with 'npm start', or tap 'Offline Demo Mode' below."
-                            : "";
+                    String hint = generateHintForError(statusCode, errorMessage);
                     showError(errorMessage + hint);
                 }
             });

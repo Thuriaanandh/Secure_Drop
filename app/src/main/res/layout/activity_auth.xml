@@ -244,9 +244,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
-            android:text="Server: http://10.0.2.2:3000"
-            android:textColor="@color/text_muted"
-            android:textSize="11sp" />
+            android:padding="8dp"
+            android:text="Server: http://10.0.2.2:3000  (Tap to change ⚙️)"
+            android:textColor="@color/brand_accent"
+            android:textSize="11.5sp" />
     </LinearLayout>
 </ScrollView>
