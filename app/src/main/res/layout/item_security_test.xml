@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
     app:cardBackgroundColor="@color/bg_surface_card"
-    app:cardCornerRadius="16dp"
+    app:cardCornerRadius="14dp"
     app:strokeColor="@color/border_subtle"
     app:strokeWidth="1dp">
 
@@ -26,7 +30,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TEST 1: Client-Side Encryption"
+                android:text="TEST 1: Client-Side AES-256-GCM Encryption"
                 android:textColor="@color/text_primary"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -40,9 +44,9 @@
                 android:paddingTop="3dp"
                 android:paddingEnd="8dp"
                 android:paddingBottom="3dp"
-                android:text="PENDING"
+                android:text="TAP TO RUN"
                 android:textColor="@color/brand_accent"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -51,106 +55,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="Expected: Ciphertext != Plaintext, GCM auth tag verified"
+            android:text="Ciphertext != Plaintext, 12-byte IV, 16-byte GCM tag, verified decryption"
             android:textColor="@color/text_secondary"
-            android:textSize="11sp" />
-
-        <TextView
-            android:id="@+id/tvActualResult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:text="Actual: Tap 'Run Test' to execute"
-            android:textColor="@color/text_muted"
-            android:textSize="11sp" />
+            android:textSize="12sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="12dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnRunSingleTest"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+            <TextView
+                android:id="@+id/tvActualResult"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ready for execution"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp" />
+
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:text="Run Test"
+                android:layout_height="wrap_content"
+                android:text="Open Test"
                 android:textColor="@color/brand_accent"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnToggleConsole"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:layout_marginStart="8dp"
-                android:text="View Trace"
-                android:textColor="@color/text_muted"
-                android:textSize="12sp"
-                android:visibility="gone" />
-        </LinearLayout>
-
-        <!-- Real-Time Cryptographic Execution Trace Console -->
-        <LinearLayout
-            android:id="@+id/layoutConsole"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bg_input_field"
-            android:orientation="vertical"
-            android:padding="12dp"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <View
-                    android:id="@+id/viewConsoleIndicator"
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
-                    android:background="@drawable/bg_badge_green" />
-
-                <TextView
-                    android:id="@+id/tvConsoleTitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="1"
-                    android:text="LIVE CRYPTOGRAPHIC EXECUTION TRACE"
-                    android:textColor="@color/brand_accent"
-                    android:textSize="10sp"
-                    android:textStyle="bold" />
-
-                <ProgressBar
-                    android:id="@+id/pbRunning"
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
-                    android:indeterminateTint="@color/brand_accent"
-                    android:visibility="gone" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@color/border_subtle" />
-
-            <TextView
-                android:id="@+id/tvConsoleOutput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:lineSpacingExtra="3dp"
-                android:text="[Ready to execute]"
-                android:textColor="@color/security_green"
-                android:textSize="11sp" />
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_chevron_right"
+                app:tint="@color/brand_accent" />
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

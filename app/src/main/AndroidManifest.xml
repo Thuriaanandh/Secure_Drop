@@ -95,5 +95,10 @@
             android:name=".ui.security.SecurityDemoActivity"
             android:exported="false" />
 
+        <!-- Dedicated Test Runner Window -->
+        <activity
+            android:name=".ui.security.SecurityTestRunnerActivity"
+            android:exported="false" />
+
     </application>
 </manifest>
