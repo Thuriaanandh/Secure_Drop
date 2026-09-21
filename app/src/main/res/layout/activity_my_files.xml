@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_dark"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <!-- Velune Top App Bar -->
@@ -55,14 +56,13 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnNewUpload"
-            style="@style/SecureDropButton"
+            style="@style/SecureDropButton.Compact"
             android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
+            android:layout_height="34dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
             android:text="+ Upload"
-            android:textSize="12sp"
-            app:cornerRadius="20dp" />
+            android:textSize="11.5sp" />
     </LinearLayout>
 
     <!-- Sleek Segmented Pill Tab Bar -->

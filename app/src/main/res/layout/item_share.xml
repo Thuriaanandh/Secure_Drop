@@ -100,38 +100,32 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCopyShareCode"
-                style="@style/SecureDropButton"
+                style="@style/SecureDropButton.CompactAccent"
                 android:layout_width="wrap_content"
-                android:layout_height="34dp"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
+                android:layout_height="32dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:text="Copy"
-                android:textColor="@color/brand_accent"
-                android:textSize="11sp"
-                app:cornerRadius="17dp"
                 app:icon="@drawable/ic_copy"
-                app:iconSize="13dp"
-                app:iconTint="@color/brand_accent"
-                app:strokeColor="@color/border_glow"
-                app:strokeWidth="1dp" />
+                app:iconGravity="textStart"
+                app:iconPadding="4dp"
+                app:iconSize="12dp"
+                app:iconTint="@color/brand_accent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRevokeShare"
-                style="@style/SecureDropButton.Danger"
+                style="@style/SecureDropButton.CompactDanger"
                 android:layout_width="wrap_content"
-                android:layout_height="34dp"
+                android:layout_height="32dp"
                 android:layout_marginStart="8dp"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:text="Revoke"
-                android:textColor="@color/security_red"
-                android:textSize="11sp"
-                app:cornerRadius="17dp"
                 app:icon="@drawable/ic_delete"
-                app:iconSize="13dp"
-                app:iconTint="@color/security_red"
-                app:strokeColor="@color/security_red"
-                app:strokeWidth="1dp" />
+                app:iconGravity="textStart"
+                app:iconPadding="4dp"
+                app:iconSize="12dp"
+                app:iconTint="@color/security_red" />
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

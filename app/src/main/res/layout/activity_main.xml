@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_dark"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <!-- Velune Sleek Top App Bar -->
@@ -12,10 +13,10 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingStart="20dp"
-        android:paddingTop="18dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="14dp">
+        android:paddingStart="16dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp">
 
         <ImageView
             android:layout_width="38dp"
@@ -27,14 +28,18 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:letterSpacing="0.02"
+                android:ellipsize="end"
+                android:letterSpacing="0.03"
+                android:maxLines="1"
+                android:singleLine="true"
                 android:text="SECUREDROP"
                 android:textColor="@color/text_primary"
                 android:textSize="17sp"
@@ -58,6 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
                     android:ellipsize="end"
+                    android:maxLines="1"
                     android:singleLine="true"
                     android:text="Vault Active • @User"
                     android:textColor="@color/text_secondary"
@@ -70,15 +76,23 @@
             android:id="@+id/btnDemoScreen"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="34dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/bg_badge_amber"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:text="⚡ Demo Suite"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:singleLine="true"
+            android:text="⚡ Demo"
             android:textColor="@color/security_amber"
             android:textSize="11sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:rippleColor="@color/security_amber_bg" />
 
         <!-- Settings Glass Icon Button -->
         <ImageView
@@ -181,14 +195,18 @@
 
                         <TextView
                             android:id="@+id/tagAes"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="8dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
                             android:background="@drawable/bg_badge_green"
-                            android:paddingStart="10dp"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:paddingStart="4dp"
                             android:paddingTop="4dp"
-                            android:paddingEnd="10dp"
+                            android:paddingEnd="4dp"
                             android:paddingBottom="4dp"
+                            android:singleLine="true"
                             android:text="✓ AES-256-GCM"
                             android:textColor="@color/security_green"
                             android:textSize="10.5sp"
@@ -196,14 +214,18 @@
 
                         <TextView
                             android:id="@+id/tagKeystore"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="8dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
                             android:background="@drawable/bg_badge_green"
-                            android:paddingStart="10dp"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:paddingStart="4dp"
                             android:paddingTop="4dp"
-                            android:paddingEnd="10dp"
+                            android:paddingEnd="4dp"
                             android:paddingBottom="4dp"
+                            android:singleLine="true"
                             android:text="✓ Keystore TEE"
                             android:textColor="@color/security_green"
                             android:textSize="10.5sp"
@@ -211,13 +233,17 @@
 
                         <TextView
                             android:id="@+id/tagIntegrity"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:background="@drawable/bg_badge_green"
-                            android:paddingStart="10dp"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:paddingStart="4dp"
                             android:paddingTop="4dp"
-                            android:paddingEnd="10dp"
+                            android:paddingEnd="4dp"
                             android:paddingBottom="4dp"
+                            android:singleLine="true"
                             android:text="✓ SHA-256"
                             android:textColor="@color/security_green"
                             android:textSize="10.5sp"
@@ -256,6 +282,7 @@
                     app:cardBackgroundColor="@color/bg_surface_card"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="0dp"
+                    app:rippleColor="@color/brand_accent_glow"
                     app:strokeColor="@color/border_subtle"
                     app:strokeWidth="1dp">
 
@@ -305,6 +332,7 @@
                     app:cardBackgroundColor="@color/bg_surface_card"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="0dp"
+                    app:rippleColor="@color/security_green_bg"
                     app:strokeColor="@color/border_subtle"
                     app:strokeWidth="1dp">
 
@@ -361,6 +389,7 @@
                     app:cardBackgroundColor="@color/bg_surface_card"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="0dp"
+                    app:rippleColor="@color/brand_accent_glow"
                     app:strokeColor="@color/border_subtle"
                     app:strokeWidth="1dp">
 
@@ -415,6 +444,7 @@
                     app:cardBackgroundColor="@color/bg_surface_card"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="0dp"
+                    app:rippleColor="@color/security_amber_bg"
                     app:strokeColor="@color/border_subtle"
                     app:strokeWidth="1dp">
 

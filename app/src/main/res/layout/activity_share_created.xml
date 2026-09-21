@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_dark"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <!-- Header -->
@@ -225,18 +226,23 @@
                 android:id="@+id/btnShareIntent"
                 style="@style/SecureDropButton.Outline"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:minHeight="50dp"
+                android:singleLine="true"
                 android:text="Share via App..."
                 app:icon="@drawable/ic_share"
-                app:iconGravity="textStart" />
+                app:iconGravity="textStart"
+                app:iconPadding="8dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnReturnDashboard"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:minHeight="48dp"
+                android:singleLine="true"
                 android:text="Return to Dashboard"
                 android:textColor="@color/text_secondary"
                 android:textSize="13sp" />

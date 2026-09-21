@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg_dark"
     android:fillViewport="true"
+    android:fitsSystemWindows="true"
     android:overScrollMode="never">
 
     <LinearLayout
@@ -219,8 +220,9 @@
             android:id="@+id/btnSubmitAuth"
             style="@style/SecureDropButton"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:minHeight="50dp"
             android:text="Log In"
             android:textColor="@color/black"
             android:textSize="14.5sp" />
@@ -229,9 +231,14 @@
             android:id="@+id/btnOfflineDemo"
             style="@style/SecureDropButton.Outline"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Offline Demo Mode (No Server Needed)"
+            android:ellipsize="end"
+            android:minHeight="50dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            android:text="Offline Demo (No Server Needed)"
             android:textSize="12sp" />
 
         <View

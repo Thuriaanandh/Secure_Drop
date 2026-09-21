@@ -11,6 +11,7 @@
     app:cardBackgroundColor="@color/bg_surface_card"
     app:cardCornerRadius="20dp"
     app:cardElevation="0dp"
+    app:rippleColor="@color/brand_accent_glow"
     app:strokeColor="@color/border_subtle"
     app:strokeWidth="1dp">
 

@@ -10,6 +10,7 @@
     app:cardBackgroundColor="@color/bg_surface_card"
     app:cardCornerRadius="20dp"
     app:cardElevation="0dp"
+    app:rippleColor="@color/brand_accent_glow"
     app:strokeColor="@color/border_subtle"
     app:strokeWidth="1dp">
 
@@ -103,18 +104,16 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnShareFile"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+                style="@style/SecureDropButton.CompactAccent"
                 android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:background="@drawable/bg_badge_blue"
-                android:paddingStart="14dp"
-                android:paddingEnd="14dp"
+                android:layout_height="32dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
                 android:text="Share"
-                android:textColor="@color/brand_accent"
-                android:textSize="12sp"
-                android:textStyle="bold"
                 app:icon="@drawable/ic_share"
-                app:iconSize="14dp"
+                app:iconGravity="textStart"
+                app:iconPadding="5dp"
+                app:iconSize="13dp"
                 app:iconTint="@color/brand_accent" />
         </LinearLayout>
     </LinearLayout>

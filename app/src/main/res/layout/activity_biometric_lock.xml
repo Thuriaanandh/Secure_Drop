@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_dark"
+    android:fitsSystemWindows="true"
     android:padding="28dp">
 
     <LinearLayout
@@ -48,10 +49,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
+            android:minHeight="50dp"
+            android:singleLine="true"
             android:text="Unlock with Biometrics"
             app:cornerRadius="26dp"
             app:icon="@drawable/ic_fingerprint"
-            app:iconGravity="textStart" />
+            app:iconGravity="textStart"
+            app:iconPadding="8dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogoutFromLock"
@@ -59,6 +63,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:minHeight="50dp"
+            android:singleLine="true"
             android:text="Log Out of Session"
             app:cornerRadius="26dp" />
     </LinearLayout>
